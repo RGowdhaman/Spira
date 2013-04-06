@@ -3,6 +3,8 @@ package screens
 	import com.greensock.*;
 	import com.greensock.easing.*;
 	
+	import events.NavigationEvent;
+	
 	import flash.display.DisplayObject;
 	import flash.geom.Point;
 	import flash.media.Sound;
@@ -19,8 +21,6 @@ package screens
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	import starling.textures.Texture;
-	
-	import events.NavigationEvent;
 	public class InGame extends Sprite
 	{
 		
@@ -59,9 +59,9 @@ package screens
 		private var urlRequestThree:URLRequest;
 		
 		
-		private var soundOneIsPlayed:Boolean;
-		private var soundTwoIsPlayed:Boolean;
-		private var soundThreeIsPlayed:Boolean;
+		private var soundOneIsPlayed:Boolean = false;
+		private var soundTwoIsPlayed:Boolean = false;
+		private var soundThreeIsPlayed:Boolean = false;
 		
 		
 		private var puceLeft:Image;
@@ -99,7 +99,7 @@ package screens
 			
 			
 			
-			titleRythme = new Image(Assets.getTexture("textRythme"));
+			titleRythme = new Image(Assets.getAtlas().getTexture("text_rythme_x2"));
 			titleRythme.pivotX = titleRythme.width/2;
 			titleRythme.pivotY = titleRythme.height/2;
 			titleRythme.x = 1024/2;
@@ -110,7 +110,7 @@ package screens
 			TweenMax.to(titleRythme,2 ,{alpha:1});
 			
 			
-			titleMelo = new Image(Assets.getTexture("textMelo"));
+			titleMelo = new Image(Assets.getAtlas().getTexture("text_melo_x2"));
 			titleMelo.pivotX = titleMelo.width/2;
 			titleMelo.pivotY = titleMelo.height/2;
 			titleMelo.x = 1024/2;
@@ -118,7 +118,7 @@ package screens
 			titleMelo.alpha = 0;
 			addChild(titleMelo);
 			
-			titlePercu = new Image(Assets.getTexture("textPercu"));
+			titlePercu = new Image(Assets.getAtlas().getTexture("text_percu_x2"));
 			titlePercu.pivotX = titlePercu.width/2;
 			titlePercu.pivotY = titlePercu.height/2;
 			titlePercu.x = 1024/2;
@@ -128,7 +128,7 @@ package screens
 			
 			
 			
-			samplePickerOne = new Image(Assets.getTexture("samplePicker"));
+			samplePickerOne = new Image(Assets.getAtlas().getTexture("samplePicker_x2"));
 			samplePickerOne.pivotX = samplePickerOne.width/2;
 			samplePickerOne.pivotY = samplePickerOne.height/2;
 			samplePickerOne.x = 1024/2;
@@ -137,7 +137,7 @@ package screens
 			addChild(samplePickerOne);
 			
 			
-			samplePickerTwo = new Image(Assets.getTexture("samplePicker"));
+			samplePickerTwo = new Image(Assets.getAtlas().getTexture("samplePicker_x2"));
 			samplePickerTwo.pivotX = samplePickerTwo.width/2;
 			samplePickerTwo.pivotY = samplePickerTwo.height/2;
 			samplePickerTwo.x = 1024;
@@ -145,7 +145,7 @@ package screens
 			samplePickerTwo.alpha = 1;
 			addChild(samplePickerTwo);
 			
-			samplePickerThree = new Image(Assets.getTexture("samplePicker"));
+			samplePickerThree = new Image(Assets.getAtlas().getTexture("samplePicker_x2"));
 			samplePickerThree.pivotX = samplePickerThree.width/2;
 			samplePickerThree.pivotY = samplePickerThree.height/2;
 			samplePickerThree.x = (2048 - 512);
@@ -154,7 +154,7 @@ package screens
 			addChild(samplePickerThree);
 			
 			
-			loader = new Image(Assets.getTexture("loader"));
+			loader = new Image(Assets.getAtlas().getTexture("loader_x2"));
 			loader.pivotX = loader.width/2;
 			loader.pivotY = loader.height/2;
 			loader.x = 2048;
@@ -164,21 +164,21 @@ package screens
 			
 			
 			// position du curseur sur le click de lutilisateur (ou le drag)
-			curseurOne = new Image(Assets.getTexture("cursor"));
+			curseurOne = new Image(Assets.getAtlas().getTexture("cursor_x2"));
 			curseurOne.pivotX = curseurOne.width/2;
 			curseurOne.pivotY = curseurOne.height/2;
 			curseurOne.alpha = 1;
 			addChild(curseurOne);
 			
 			// position du curseur sur le click de lutilisateur (ou le drag)
-			curseurTwo = new Image(Assets.getTexture("cursor"));
+			curseurTwo = new Image(Assets.getAtlas().getTexture("cursor_x2"));
 			curseurTwo.pivotX = curseurTwo.width/2;
 			curseurTwo.pivotY = curseurTwo.height/2;
 			curseurTwo.alpha = 1;
 			addChild(curseurTwo);
 			
 			// position du curseur sur le click de lutilisateur (ou le drag)
-			curseurThree = new Image(Assets.getTexture("cursor"));
+			curseurThree = new Image(Assets.getAtlas().getTexture("cursor_x2"));
 			curseurThree.pivotX = curseurThree.width/2;
 			curseurThree.pivotY = curseurThree.height/2;
 			curseurThree.alpha = 1;
@@ -188,7 +188,7 @@ package screens
 			
 			
 			// position du curseur sur le click de lutilisateur (ou le drag)
-			puceLeft = new Image(Assets.getTexture("puceOff"));
+			puceLeft = new Image(Assets.getAtlas().getTexture("puceOff_x2"));
 			puceLeft.pivotX = puceLeft.width/2;
 			puceLeft.pivotY = puceLeft.height/2;
 			puceLeft.alpha = 0.3;
@@ -197,7 +197,7 @@ package screens
 			
 			puceLeft.addEventListener(TouchEvent.TOUCH, GotoLeft);
 			
-			puceRight = new Image(Assets.getTexture("puceOff"));
+			puceRight = new Image(Assets.getAtlas().getTexture("puceOff_x2"));
 			puceRight.pivotX = puceRight.width/2;
 			puceRight.pivotY = puceRight.height/2;
 			puceRight.alpha = 0.3;
@@ -250,18 +250,26 @@ package screens
 		private function onSamplePickerOne(event:TouchEvent):void
 		{
 			
-			var touch:Touch = event.getTouch(this, TouchPhase.MOVED);
-			if (touch)
+			
+			var touchMove:Touch = event.getTouch(this, TouchPhase.MOVED);
+			if(touchMove)
 			{
-				var localPos:Point = touch.getLocation(this);
-				
+				var localPos:Point = touchMove.getLocation(this);
+				trace(localPos.x, localPos.y);
 				curseurOne.x = localPos.x;
 				curseurOne.y = localPos.y;
-				trace("Touched object at position: " + localPos.x);
+				
 			}
+			if(soundOneIsPlayed === true){
+				soundChannelOne.stop();
+				soundOneIsPlayed = false;
+			}
+			
+			
 			var touchEnd:Touch = event.getTouch(this, TouchPhase.ENDED);
 			if(touchEnd)
 			{
+				
 				soundChannelOne = soundOne.play();
 				soundOneIsPlayed = true;
 			
@@ -271,7 +279,7 @@ package screens
 		private function onSamplePickerTwo(event:TouchEvent):void
 		{
 			
-			var touch:Touch = event.getTouch(this, TouchPhase.MOVED);
+			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
 			if (touch)
 			{
 				var localPos:Point = touch.getLocation(this);
@@ -283,6 +291,8 @@ package screens
 			if(touchEnd)
 			{
 				soundChannelOne.stop();
+				soundOneIsPlayed = false;
+				
 				soundChannelOne = soundTwo.play();
 				soundTwoIsPlayed = true;
 			
@@ -293,7 +303,7 @@ package screens
 		private function onSamplePickerThree(event:TouchEvent):void
 		{
 			
-			var touch:Touch = event.getTouch(this, TouchPhase.MOVED);
+			var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
 			if (touch)
 			{
 				var localPos:Point = touch.getLocation(this);

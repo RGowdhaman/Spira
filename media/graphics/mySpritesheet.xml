@@ -1,66 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:d1bf097f2511e314ef10418d8a268b75$ -->
-<TextureAtlas imagePath="mySpritesheet.png">
-    <SubTexture name="about_backButton" x="2" y="2" width="124" height="61"/>
-    <SubTexture name="about_hsharmaLogo" x="128" y="2" width="184" height="65"/>
-    <SubTexture name="about_starlingLogo" x="314" y="2" width="184" height="65"/>
-    <SubTexture name="bgLayer2" x="2" y="69" width="800" height="208" frameX="0" frameY="0" frameWidth="800" frameHeight="252"/>
-    <SubTexture name="bgLayer3" x="2" y="279" width="800" height="169" frameX="0" frameY="0" frameWidth="800" frameHeight="209"/>
-    <SubTexture name="bgLayer4" x="2" y="450" width="800" height="89"/>
-    <SubTexture name="fly_0001" x="804" y="450" width="153" height="77" frameX="-2" frameY="0" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0002" x="2" y="541" width="153" height="77" frameX="-2" frameY="0" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0003" x="157" y="541" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0004" x="312" y="541" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0005" x="467" y="541" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0006" x="622" y="541" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0007" x="777" y="541" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0008" x="2" y="620" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0009" x="157" y="620" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0010" x="312" y="620" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0011" x="467" y="620" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0012" x="622" y="620" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0013" x="777" y="620" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0014" x="2" y="697" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0015" x="157" y="697" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0016" x="312" y="697" width="153" height="73" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0017" x="467" y="697" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0018" x="622" y="697" width="153" height="75" frameX="-2" frameY="-2" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0019" x="777" y="697" width="153" height="75" frameX="-2" frameY="0" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="fly_0020" x="2" y="774" width="153" height="75" frameX="-2" frameY="0" frameWidth="155" frameHeight="77"/>
-    <SubTexture name="gameOver_aboutButton" x="157" y="774" width="167" height="79"/>
-    <SubTexture name="gameOver_mainButton" x="326" y="774" width="166" height="90"/>
-    <SubTexture name="gameOver_playAgainButton" x="494" y="774" width="165" height="102"/>
-    <SubTexture name="item1" x="661" y="774" width="29" height="30"/>
-    <SubTexture name="item2" x="692" y="774" width="22" height="33"/>
-    <SubTexture name="item3" x="716" y="774" width="25" height="23"/>
-    <SubTexture name="item4" x="743" y="774" width="23" height="24"/>
-    <SubTexture name="item5" x="768" y="774" width="26" height="25"/>
-    <SubTexture name="item6" x="796" y="774" width="56" height="55"/>
-    <SubTexture name="item7" x="854" y="774" width="57" height="55"/>
-    <SubTexture name="obstacle1" x="2" y="878" width="139" height="53"/>
-    <SubTexture name="obstacle1_crash" x="143" y="878" width="94" height="58"/>
-    <SubTexture name="obstacle2" x="239" y="878" width="79" height="71"/>
-    <SubTexture name="obstacle2_crash" x="320" y="878" width="61" height="75"/>
-    <SubTexture name="obstacle3" x="383" y="878" width="137" height="72"/>
-    <SubTexture name="obstacle3_crash" x="522" y="878" width="102" height="80"/>
-    <SubTexture name="obstacle4_0001" x="626" y="878" width="145" height="61"/>
-    <SubTexture name="obstacle4_0002" x="773" y="878" width="143" height="61" frameX="-2" frameY="0" frameWidth="145" frameHeight="61"/>
-    <SubTexture name="obstacle4_crash" x="918" y="878" width="95" height="66"/>
-    <SubTexture name="particleEat" x="2" y="960" width="15" height="15"/>
-    <SubTexture name="particleWindForce" x="19" y="960" width="286" height="4" frameX="-4" frameY="0" frameWidth="294" frameHeight="4"/>
-    <SubTexture name="soundOff" x="307" y="960" width="40" height="40"/>
-    <SubTexture name="soundOn0000" x="349" y="960" width="40" height="40"/>
-    <SubTexture name="soundOn0001" x="391" y="960" width="40" height="40"/>
-    <SubTexture name="soundOn0002" x="433" y="960" width="40" height="40"/>
-    <SubTexture name="startButton" x="475" y="960" width="166" height="84"/>
-    <SubTexture name="watchOut_0001" x="643" y="960" width="112" height="72" frameX="0" frameY="-4" frameWidth="112" frameHeight="80"/>
-    <SubTexture name="watchOut_0002" x="757" y="960" width="110" height="70" frameX="0" frameY="-6" frameWidth="112" frameHeight="80"/>
-    <SubTexture name="watchOut_0003" x="869" y="960" width="106" height="70" frameX="0" frameY="-6" frameWidth="112" frameHeight="80"/>
-    <SubTexture name="watchOut_0004" x="2" y="1046" width="110" height="70" frameX="0" frameY="-6" frameWidth="112" frameHeight="80"/>
-    <SubTexture name="watchOut_0005" x="643" y="960" width="112" height="72" frameX="0" frameY="-4" frameWidth="112" frameHeight="80"/>
-    <SubTexture name="welcome_aboutButton" x="114" y="1046" width="86" height="54"/>
-    <SubTexture name="welcome_hero" x="202" y="1046" width="352" height="342"/>
-    <SubTexture name="welcome_playButton" x="556" y="1046" width="176" height="106"/>
-    <SubTexture name="welcome_title" x="2" y="1390" width="331" height="228"/>
+<!-- $TexturePacker:SmartUpdate:85269107a51545a012bde92366e3f30c$ -->
+<TextureAtlas imagePath="mySpriteSheet.png">
+    <SubTexture name="bigTitle_x2" x="2" y="1061" width="764" height="159"/>
+    <SubTexture name="bt_animation_x2" x="456" y="1337" width="120" height="120"/>
+    <SubTexture name="bt_badgeWizard_x2" x="578" y="1337" width="120" height="120"/>
+    <SubTexture name="cursor_x2" x="700" y="1337" width="50" height="50"/>
+    <SubTexture name="final_x2" x="2" y="2" width="1057" height="1057"/>
+    <SubTexture name="loader_x2" x="1664" y="1061" width="274" height="274"/>
+    <SubTexture name="puceOff_x2" x="772" y="1337" width="18" height="18"/>
+    <SubTexture name="puceOn_x2" x="752" y="1337" width="18" height="18"/>
+    <SubTexture name="samplePicker_x2" x="1061" y="2" width="794" height="794"/>
+    <SubTexture name="text_animation_x2" x="1070" y="1061" width="300" height="83"/>
+    <SubTexture name="text_badgeWizard_x2" x="768" y="1061" width="300" height="83"/>
+    <SubTexture name="text_melo_x2" x="205" y="1337" width="124" height="30"/>
+    <SubTexture name="text_percu_x2" x="2" y="1337" width="201" height="30"/>
+    <SubTexture name="text_rythme_x2" x="331" y="1337" width="123" height="30"/>
+    <SubTexture name="text_title_x2" x="1372" y="1061" width="290" height="65"/>
 </TextureAtlas>
