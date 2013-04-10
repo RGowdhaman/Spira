@@ -36,7 +36,7 @@ package
 			this.addChild(background);			
 			
 			// title
-			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle_x2"));
+			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
 			bigTitle.pivotX = bigTitle.width/2;
 			bigTitle.pivotY = bigTitle.height/2;
 			bigTitle.x = 1024/2;

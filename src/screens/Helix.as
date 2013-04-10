@@ -53,7 +53,7 @@ package screens
 			soundTwo = new basseFunky();
 			soundThree = new pianoFunky();
 			// position du curseur sur le click de lutilisateur (ou le drag)
-			finalm = new Image(Assets.getAtlas().getTexture("final_x2"));
+			finalm = new Image(Assets.getAtlas().getTexture("final"));
 			finalm.pivotX = finalm.width/2;
 			finalm.pivotY = finalm.height/2;
 			finalm.x = 1024/2;
@@ -63,7 +63,7 @@ package screens
 			
 			
 
-			btnBack = new Image(Assets.getAtlas().getTexture("puceOff_x2"));
+			btnBack = new Image(Assets.getAtlas().getTexture("puceOff"));
 			btnBack.pivotX = btnBack.width/2;
 			btnBack.pivotY = btnBack.height/2;
 			btnBack.alpha = 0.3;

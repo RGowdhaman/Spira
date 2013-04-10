@@ -19,10 +19,10 @@ package
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
 		
-		[Embed(source="../media/graphics/mySpriteSheet.png")]
+		[Embed(source="../media/graphics/spiraSheet_sd.png")]
 		public static const AtlasTextureGame:Class;
 		
-		[Embed(source="../media/graphics/mySpriteSheet.xml", mimeType="application/octet-stream")]
+		[Embed(source="../media/graphics/spiraSheet_sd.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlGame:Class;
 		
 		// FONTS
@@ -33,7 +33,6 @@ package
 		{
 			if(gameTextures[name] == undefined)
 			{
-				trace(name);
 				var bitmap:Bitmap = new Assets[name]();
 				gameTextures[name] = Texture.fromBitmap(bitmap);
 			}
@@ -46,7 +45,7 @@ package
 			{
 				var texture:Texture = getTexture("AtlasTextureGame");
 				var xml:XML = XML(new AtlasXmlGame());
-				gameTextureAtlas = new TextureAtlas(texture, xml);
+				gameTextureAtlas = new TextureAtlas(texture,xml);
 			}
 			return gameTextureAtlas;
 			

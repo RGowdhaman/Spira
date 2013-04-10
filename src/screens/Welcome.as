@@ -54,7 +54,7 @@ package screens
 		
 			
 			// button creer un badge
-			startMaking = new Button(Assets.getAtlas().getTexture("bt_badgeWizard_x2"));
+			startMaking = new Button(Assets.getAtlas().getTexture("bt_badgeWizard"));
 			startMaking.pivotX = startMaking.width/2;
 			startMaking.pivotY = startMaking.height/2;
 			startMaking.x = 820/2;
@@ -64,7 +64,7 @@ package screens
 			this.addChild(startMaking);
 			
 			// button text badge
-			tstartMaking = new Button(Assets.getAtlas().getTexture("text_badgeWizard_x2"));
+			tstartMaking = new Button(Assets.getAtlas().getTexture("text_badgeWizard"));
 			tstartMaking.pivotX = tstartMaking.width/2;
 			tstartMaking.pivotY = tstartMaking.height/2;
 			tstartMaking.x = 820/2;
@@ -74,7 +74,7 @@ package screens
 			
 			
 			// button text animation
-			viewMandala = new Button(Assets.getAtlas().getTexture("bt_animation_x2"));
+			viewMandala = new Button(Assets.getAtlas().getTexture("bt_animation"));
 			viewMandala.pivotX = viewMandala.width/2;
 			viewMandala.pivotY = viewMandala.height/2;
 			viewMandala.x = 1220/2;
@@ -83,7 +83,7 @@ package screens
 			viewMandala.scaleY = 0;
 			this.addChild(viewMandala);
 			
-			tviewMandala = new Button(Assets.getAtlas().getTexture("text_animation_x2"));
+			tviewMandala = new Button(Assets.getAtlas().getTexture("text_animation"));
 			tviewMandala.pivotX = tviewMandala.width/2;
 			tviewMandala.pivotY = tviewMandala.height/2;
 			tviewMandala.x = 1220/2;

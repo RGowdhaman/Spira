@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:fc539d769dd8c48c6c57d01e0131787e$ -->
+<TextureAtlas imagePath="spiraSheet_sd.png">
+    <SubTexture name="bigTitle" x="2" y="64" width="382" height="80"/>
+    <SubTexture name="bt_animation" x="795" y="2" width="60" height="60"/>
+    <SubTexture name="bt_badgeWizard" x="733" y="2" width="60" height="60"/>
+    <SubTexture name="cursor" x="255" y="2" width="25" height="25"/>
+    <SubTexture name="final" x="2" y="463" width="529" height="529"/>
+    <SubTexture name="loader" x="386" y="64" width="137" height="137"/>
+    <SubTexture name="puceOff" x="2" y="2" width="9" height="9"/>
+    <SubTexture name="puceOn" x="13" y="2" width="9" height="9"/>
+    <SubTexture name="samplePicker" x="525" y="64" width="397" height="397"/>
+    <SubTexture name="text_animation" x="429" y="2" width="150" height="42"/>
+    <SubTexture name="text_badgeWizard" x="581" y="2" width="150" height="42"/>
+    <SubTexture name="text_melo" x="24" y="2" width="62" height="15"/>
+    <SubTexture name="text_percu" x="152" y="2" width="101" height="15"/>
+    <SubTexture name="text_rythme" x="88" y="2" width="62" height="15"/>
+    <SubTexture name="text_title" x="282" y="2" width="145" height="33"/>
+</TextureAtlas>
