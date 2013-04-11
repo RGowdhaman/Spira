@@ -6,6 +6,8 @@ package
 	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	
+	import screens.CreateSpi;
+	
 	import starling.core.Starling;
 	
 	[SWF(frameRate="60", width="1024", height="768", backgroundColor="0xEEEEEE")]
@@ -29,7 +31,7 @@ package
 			this.stage.align = StageAlign.TOP_LEFT;
 			Starling.multitouchEnabled = true;
 			
-			myStarling = new Starling(Game, stage, viewPort);
+			myStarling = new Starling(screens.CreateSpi, stage, viewPort);
 			
 			myStarling.stage.stageWidth = 1024*stageScale;
 			myStarling.stage.stageHeight = 768*stageScale;
