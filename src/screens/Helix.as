@@ -4,18 +4,17 @@ package screens
 	import com.greensock.TweenMax;
 	import com.greensock.easing.*;
 	
+	import events.NavigationEvent;
+	
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
-	
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
-	import events.NavigationEvent;
-
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.text.TextField;
 	public class Helix extends Sprite
 	{
@@ -63,12 +62,12 @@ package screens
 			
 			
 
-			btnBack = new Image(Assets.getAtlas().getTexture("puceOff"));
+			btnBack = new Image(Assets.getAtlas().getTexture("createBadge"));
 			btnBack.pivotX = btnBack.width/2;
 			btnBack.pivotY = btnBack.height/2;
 			btnBack.alpha = 0.3;
-			btnBack.height = 75;
-			btnBack.width = 75;
+			btnBack.height = 201/2;
+			btnBack.width = 201/2;
 			btnBack.x = 1024/2;
 			btnBack.y = 1400/2;
 			addChild(btnBack);
@@ -77,11 +76,14 @@ package screens
 			btnBack.addEventListener(TouchEvent.TOUCH, backToMenu);
 		}
 		
-		private function backToMenu():void
-		{
-			this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "play"}, true));
-
-			
+		private function backToMenu(event:TouchEvent):void
+		{	
+			var touchBegan:Touch = event.getTouch(this, TouchPhase.BEGAN);
+			if(touchBegan)
+			{
+				trace('backto menu');
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "Welcome"}, true));				
+			}			
 		}
 		
 		public function disposeTemporarily():void

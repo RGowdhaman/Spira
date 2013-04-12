@@ -4,9 +4,9 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
-	import flash.text.TextField;
 	
 	import screens.CreateSpi;
+	import screens.InGame;
 	
 	import starling.core.Starling;
 	
@@ -31,18 +31,13 @@ package
 			this.stage.align = StageAlign.TOP_LEFT;
 			Starling.multitouchEnabled = true;
 			
-			myStarling = new Starling(screens.CreateSpi, stage, viewPort);
-			
-			myStarling.stage.stageWidth = 1024*stageScale;
-			myStarling.stage.stageHeight = 768*stageScale;
+			myStarling = new Starling(Game, stage, viewPort);
 			
 			
 			myStarling.simulateMultitouch = true;
 			myStarling.antiAliasing = 1;
 			myStarling.showStats = true;
 			myStarling.start();
-			trace(screenWidth/viewPort.width);
-			trace(screenWidth, viewPort.width);
 			trace(myStarling.contentScaleFactor);
 		}
 	}

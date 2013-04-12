@@ -52,7 +52,18 @@ package screens
 			//greatTitle.vAlign = "center";
 			//this.addChild(greatTitle);
 		
+			// title
+			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
+			bigTitle.pivotX = bigTitle.width/2;
+			bigTitle.pivotY = bigTitle.height/2;
+			bigTitle.x = 1024/2;
+			bigTitle.y = 650/2;
+			bigTitle.scaleY = 0;
+			bigTitle.scaleX = 0;
+			bigTitle.alpha = 0;
+			this.addChild(bigTitle);
 			
+		
 			// button creer un badge
 			startMaking = new Button(Assets.getAtlas().getTexture("bt_badgeWizard"));
 			startMaking.pivotX = startMaking.width/2;

@@ -13,6 +13,8 @@ package
 		// splash screen
 		[Embed(source="../media/backgrounds/splashScreen_x2.png")]
 		public static const splashScreen:Class;
+		[Embed(source="../media/backgrounds/fondMusique_x2.png")]
+		public static const fondMusique:Class;
 		
 		
 		

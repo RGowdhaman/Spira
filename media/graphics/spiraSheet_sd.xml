@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:fc539d769dd8c48c6c57d01e0131787e$ -->
+<!-- $TexturePacker:SmartUpdate:55c81f5f4ed25838f2e27249d9cb634a$ -->
 <TextureAtlas imagePath="spiraSheet_sd.png">
-    <SubTexture name="bigTitle" x="2" y="64" width="382" height="80"/>
-    <SubTexture name="bt_animation" x="795" y="2" width="60" height="60"/>
-    <SubTexture name="bt_badgeWizard" x="733" y="2" width="60" height="60"/>
-    <SubTexture name="cursor" x="255" y="2" width="25" height="25"/>
-    <SubTexture name="final" x="2" y="463" width="529" height="529"/>
-    <SubTexture name="loader" x="386" y="64" width="137" height="137"/>
-    <SubTexture name="puceOff" x="2" y="2" width="9" height="9"/>
-    <SubTexture name="puceOn" x="13" y="2" width="9" height="9"/>
-    <SubTexture name="samplePicker" x="525" y="64" width="397" height="397"/>
-    <SubTexture name="text_animation" x="429" y="2" width="150" height="42"/>
-    <SubTexture name="text_badgeWizard" x="581" y="2" width="150" height="42"/>
-    <SubTexture name="text_melo" x="24" y="2" width="62" height="15"/>
-    <SubTexture name="text_percu" x="152" y="2" width="101" height="15"/>
-    <SubTexture name="text_rythme" x="88" y="2" width="62" height="15"/>
-    <SubTexture name="text_title" x="282" y="2" width="145" height="33"/>
+    <SubTexture name="bigTitle" x="2" y="2" width="382" height="80"/>
+    <SubTexture name="bt_animation" x="386" y="2" width="60" height="60"/>
+    <SubTexture name="bt_badgeWizard" x="448" y="2" width="60" height="60"/>
+    <SubTexture name="createBadge-hovered" x="510" y="2" width="201" height="201"/>
+    <SubTexture name="createBadge" x="713" y="2" width="201" height="201"/>
+    <SubTexture name="cursor" x="916" y="2" width="25" height="25"/>
+    <SubTexture name="final" x="943" y="2" width="529" height="529"/>
+    <SubTexture name="logo" x="1474" y="2" width="137" height="137"/>
+    <SubTexture name="pentagone" x="2" y="533" width="673" height="626"/>
+    <SubTexture name="pentagoneBackground" x="677" y="533" width="703" height="702"/>
+    <SubTexture name="puce" x="1382" y="533" width="16" height="18"/>
+    <SubTexture name="text_animation" x="1400" y="533" width="150" height="42"/>
+    <SubTexture name="text_badgeWizard" x="1552" y="533" width="150" height="42"/>
+    <SubTexture name="text_badgeWizardiiii" x="1704" y="533" width="237" height="29"/>
+    <SubTexture name="text_logo" x="2" y="1237" width="359" height="136"/>
+    <SubTexture name="text_melo" x="363" y="1237" width="98" height="23"/>
+    <SubTexture name="text_percussions" x="463" y="1237" width="156" height="17"/>
+    <SubTexture name="text_rythme" x="621" y="1237" width="90" height="17"/>
 </TextureAtlas>
