@@ -35,8 +35,8 @@ package
 			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
 			bigTitle.pivotX = bigTitle.width/2;
 			bigTitle.pivotY = bigTitle.height/2;
-			bigTitle.x = (2048/2) / 2;
-			bigTitle.y = (1536/2) / 2 - 100;
+			bigTitle.x = 512;
+			bigTitle.y = 384 - 100;
 			bigTitle.scaleY = 0.9;
 			bigTitle.scaleX = 0.9;
 			bigTitle.alpha = 0;

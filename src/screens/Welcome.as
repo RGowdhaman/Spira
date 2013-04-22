@@ -6,7 +6,6 @@ package screens
 	
 	import events.NavigationEvent;
 	
-	import flash.utils.*;
 	
 	import starling.display.Button;
 	import starling.display.Graphics;
@@ -46,23 +45,7 @@ package screens
 		
 		// fill assets content before initialize animation on load view
 		private function drawScreen():void
-		{	
-			
-			//var greatTitle:TextField = new TextField(800, 200, 'SPIRA', "Verdana", 20, 0x333333, false);
-			//greatTitle.vAlign = "center";
-			//this.addChild(greatTitle);
-		
-			// title
-			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
-			bigTitle.pivotX = bigTitle.width/2;
-			bigTitle.pivotY = bigTitle.height/2;
-			bigTitle.x = 1024/2;
-			bigTitle.y = 650/2;
-			bigTitle.scaleY = 0;
-			bigTitle.scaleX = 0;
-			bigTitle.alpha = 0;
-			this.addChild(bigTitle);
-			
+		{
 		
 			// button creer un badge
 			startMaking = new Button(Assets.getAtlas().getTexture("bt_badgeWizard"));
@@ -115,12 +98,14 @@ package screens
 			if(buttonClicked as Button == startMaking)
 			{
 				hideButtons();
+				this.removeEventListener(Event.TRIGGERED, onMainMenuClick);
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "play"}, true));
 			}
 			
 			if(buttonClicked as Button == viewMandala)
 			{
 				hideButtons();
+				this.removeEventListener(Event.TRIGGERED, onMainMenuClick);
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "view"}, true));
 			}
 		}

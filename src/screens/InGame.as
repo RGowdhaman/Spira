@@ -14,7 +14,7 @@ package screens
 	import flash.utils.ByteArray;
 	import flash.utils.setTimeout;
 	
-	import objects.GameBackground;
+	import models.GameBackground;
 	
 	import starling.display.Button;
 	import starling.display.Image;
