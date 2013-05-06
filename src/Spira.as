@@ -5,9 +5,11 @@ package
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
 	
-	import screens.CreateSpi;
 	import screens.InGame;
-	import screens.testScreen;
+	import screens.game.Compositing;
+	import screens.test.CreateSpi;
+	import screens.test.Spectrum;
+	import screens.test.testScreen;
 	
 	import starling.core.Starling;
 	
@@ -19,6 +21,12 @@ package
 		
 		public function Spira()
 		{
+			//var spectre:Spectrum = new Spectrum();
+			//addChild(spectre);
+			
+			
+			
+			
 			trace('Spira loaded');
 			// Screen dimension (screen device)
 			var screenWidth:int = stage.fullScreenWidth;
@@ -32,7 +40,7 @@ package
 			this.stage.align = StageAlign.TOP_LEFT;
 			Starling.multitouchEnabled = true;
 			
-			myStarling = new Starling(screens.testScreen, stage, viewPort);
+			myStarling = new Starling(Game, stage, viewPort);
 			
 			// default screen size (mac debug)
 			myStarling.stage.stageWidth  = 1024;
@@ -45,7 +53,6 @@ package
 			myStarling.antiAliasing = 1;
 			myStarling.showStats = true;
 			myStarling.start();
-			trace(myStarling.contentScaleFactor);
 		}
 	}
 }

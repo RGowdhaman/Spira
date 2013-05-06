@@ -82,7 +82,7 @@ package screens
 			if(touchBegan)
 			{
 				trace('backto menu');
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "Welcome"}, true));				
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "intro"}, true));				
 			}			
 		}
 		

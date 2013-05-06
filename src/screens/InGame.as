@@ -567,7 +567,7 @@ package screens
 					soundThreeIsPlayed = false;
 				}
 				trace('go to the other page');
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "view"}, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN,{id: "helix"}, true));
 			}
 		}
 
@@ -601,7 +601,7 @@ package screens
 		private function readSpectrum(event:Event):void
 		{
 			
-			SoundMixer.computeSpectrum(myByteArray, false, 0);
+			SoundMixer.computeSpectrum(myByteArray, true, 0);
 			
 			
 			for(var i:int = 0; i < 256; i += 8){
@@ -614,7 +614,8 @@ package screens
 		private function drawSpectrum(myReadFloat:Number, myIteration:Number):void
 		{
 			
-			var myNumber:Number = myReadFloat * 500;
+			var myNumber:Number = myReadFloat * 100;
+			
 			
 			if(!isTweened && myNumber > 50)
 			{

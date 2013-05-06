@@ -7,7 +7,8 @@ package
 	
 	import screens.Helix;
 	import screens.InGame;
-	import screens.Welcome;
+	import screens.Intro;
+	import screens.game.Compositing;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -15,10 +16,12 @@ package
 	
 	public class Game extends Sprite
 	{
-		private var screenWelcome:Welcome;
+		private var screenWelcome:Intro;
 		private var screenInGame:InGame;
-		private var screenMandala:Helix;
+		private var screenHelix:Helix;
+		private var screenCompositing:Compositing;
 		private var bigTitle:Image;
+		private var that:Object;
 		
 		private var background:Image;
 		public function Game()
@@ -28,9 +31,10 @@ package
 		}
 		private function onAddedToStage(event:Event):void
 		{
+			that = this;
 			background = new Image(Assets.getTexture('splashScreen'));
 			this.addChild(background);			
-			
+			trace(this, Game);
 			// title
 			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
 			bigTitle.pivotX = bigTitle.width/2;
@@ -48,16 +52,21 @@ package
 			
 			//  SET ALL SCREENS
 			// PLACE HERE SCREENS APP TO DISPOSE (HIDE) TO PREPARE THE STAGE
-			screenInGame = new InGame();
-			screenInGame.disposeTemporarily();
-			this.addChild(screenInGame);
 			
-			screenMandala = new Helix();
-			screenMandala.disposeTemporarily();
-			this.addChild(screenMandala);
+			//screenInGame = new InGame();
+			//screenInGame.disposeTemporarily();
+			//this.addChild(screenInGame);
+			
+			screenCompositing = new Compositing();
+			this.addChild(screenCompositing);
+			screenCompositing.disposeTemporarily();
+			
+			screenHelix = new Helix();
+			this.addChild(screenHelix);
+			screenHelix.disposeTemporarily();
 			
 			
-			screenWelcome = new Welcome();
+			screenWelcome = new Intro();
 			this.addChild(screenWelcome);
 			screenWelcome.initialize();
 			TweenMax.to(bigTitle, 4, {alpha: 1, ease:Cubic.easeOut});
@@ -72,22 +81,23 @@ package
 			switch (event.params.id)
 			{
 				// set tweens here just before loading view
-				case "play":
+				case "compositing":
 					TweenMax.to(bigTitle, 1, {alpha:0, onComplete: function():void{
 						screenWelcome.disposeTemporarily();
-						screenInGame.initialize();
+						screenCompositing.initialize();
 					}, ease: Quad.easeOut});
 					break;
-				case "view":
+				case "helix":
 					TweenMax.to(bigTitle, 1, {alpha:0, onComplete: function():void{
-						screenInGame.disposeTemporarily();
+						screenCompositing.disposeTemporarily();
 						screenWelcome.disposeTemporarily();
-						screenMandala.initialize();
+					
+						screenHelix.initialize();
 					}, ease:Quad.easeOut});
 					break;
-				case "welcome":
-					screenInGame.disposeTemporarily();
-					screenMandala.disposeTemporarily();
+				case "intro":
+					screenCompositing.disposeTemporarily();
+					screenHelix.disposeTemporarily();
 					screenWelcome.initialize();
 					TweenMax.to(bigTitle, 2, {alpha: 1, ease:Quad.easeOut});
 					break;

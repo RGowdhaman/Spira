@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:2c743179f948054c02f4497bef52a203$ -->
+<TextureAtlas imagePath="spiraSheet_hd.png">
+    <SubTexture name="bt_anim" x="2" y="2" width="201" height="201"/>
+    <SubTexture name="bt_badge" x="205" y="2" width="201" height="201"/>
+    <SubTexture name="cursor" x="408" y="2" width="50" height="50"/>
+    <SubTexture name="final" x="460" y="2" width="1057" height="1057"/>
+    <SubTexture name="logo" x="2" y="1061" width="64" height="64"/>
+    <SubTexture name="pentagone" x="68" y="1061" width="673" height="626"/>
+    <SubTexture name="pentagoneBackground" x="743" y="1061" width="703" height="702"/>
+    <SubTexture name="puce" x="1448" y="1061" width="16" height="18"/>
+    <SubTexture name="text_anim" x="2" y="1765" width="216" height="78"/>
+    <SubTexture name="text_create" x="220" y="1765" width="169" height="78"/>
+    <SubTexture name="text_leCreateBadge" x="391" y="1765" width="237" height="29"/>
+    <SubTexture name="text_logo" x="630" y="1765" width="359" height="136"/>
+    <SubTexture name="text_melodie" x="991" y="1765" width="98" height="23"/>
+    <SubTexture name="text_percussions" x="1091" y="1765" width="156" height="17"/>
+    <SubTexture name="text_rythme" x="1249" y="1765" width="90" height="17"/>
+</TextureAtlas>
