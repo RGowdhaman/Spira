@@ -242,7 +242,7 @@ package screens.game
 				vol += lev;
 				val = vol * 0.1;
 				
-				trace('vol: ', val, 'lev : ', lev);
+				//trace('vol: ', val, 'lev : ', lev);
 				var a : uint = i;
 
 					fontMusique.scaleY = val;

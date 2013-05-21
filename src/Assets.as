@@ -18,8 +18,20 @@ package
 		
 		
 		
+		
 		private static var gameTextures:Dictionary = new Dictionary();
 		private static var gameTextureAtlas:TextureAtlas;
+		
+		
+		
+		[Embed(source="../media/graphics/triangle.png")]
+		public static const AtlasTextureTriangle:Class;
+		
+		[Embed(source="../media/graphics/triangle.xml", mimeType="application/octet-stream")]
+		public static const AtlasXmlTriangle:Class;
+		
+		
+		
 		
 		[Embed(source="../media/graphics/spiraSheet_sd.png")]
 		public static const AtlasTextureGame:Class;
@@ -47,6 +59,18 @@ package
 			{
 				var texture:Texture = getTexture("AtlasTextureGame");
 				var xml:XML = XML(new AtlasXmlGame());
+				gameTextureAtlas = new TextureAtlas(texture,xml);
+			}
+			return gameTextureAtlas;
+			
+		}
+		
+		public static function getAtlasTriangle():TextureAtlas
+		{
+			if(gameTextureAtlas == null)
+			{
+				var texture:Texture = getTexture("AtlasTextureTriangle");
+				var xml:XML = XML(new AtlasXmlTriangle());
 				gameTextureAtlas = new TextureAtlas(texture,xml);
 			}
 			return gameTextureAtlas;

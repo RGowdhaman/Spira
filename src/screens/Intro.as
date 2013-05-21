@@ -6,7 +6,6 @@ package screens
 	
 	import events.NavigationEvent;
 	
-	
 	import starling.display.Button;
 	import starling.display.Graphics;
 	import starling.display.Image;
@@ -16,6 +15,7 @@ package screens
 	import starling.text.TextField;
 	import starling.textures.GradientTexture;
 	import starling.textures.Texture;
+	import flash.geom.Point;
 	
 	public class Intro extends Sprite
 	{	
@@ -83,7 +83,25 @@ package screens
 			tviewMandala.y = 1000/2;
 			tviewMandala.alpha = 0;
 			this.addChild(tviewMandala);
+			/*
+			var polygon:Polygon = new Polygon(100,5, 0x00FF00); // radius, edges, color
+			polygon.x = 512;
+			trace('width :', polygon.width,'height :', polygon.height);
+			polygon.pivotX = polygon.width/2;
+			polygon.pivotY = polygon.height/2;
+			trace('pivotX :', polygon.pivotX,'pivotY :', polygon.pivotY);
+			polygon.rotation = 72;
 			
+			polygon.y = 384;
+			polygon.scaleX = 0.5;
+			polygon.scaleY = 0.5;
+			addChild(polygon);
+			*/
+			
+			
+			
+			//TweenMax.to(polygon, 2, {alpha:0.5, rotation:360});
+			//TweenMax.to(polygon, 1, {scaleX: 1, scaleY: 1, ease:Circ.easeOut});
 			
 			// LISTENERS
 			// listen all click event triggered by the welcome page
