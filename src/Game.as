@@ -1,16 +1,16 @@
 package
 {
-	import com.greensock.*;
-	import com.greensock.easing.*;
-	
 	import com.mikesoylu.fortia.fAssetManager;
 	
-	import events.NavigationEvent;
-	
+	import flash.display.Sprite;
 	import flash.utils.setTimeout;
 	
-	import spira.assets.SpiraAssets;
+	import spira.assets.Intro.Background;
+	import spira.events.NavigationEvent;
+	import spira.events.TransitionManager;
+	import spira.events.TransitionManagerEvent;
 	import spira.models.NavOptions;
+	import spira.screens.Composer;
 	import spira.screens.Intro;
 	
 	import starling.display.Image;
@@ -21,62 +21,115 @@ package
 	{
 		
 		private var screen:Sprite;
-		
 		private var background:Image;
+		private var oldScreen:Sprite;
+		
 		
 		public function Game()
 		{
 			super();
-			
-			fAssetManager.addManager("game");
-			fAssetManager.addManager("loader");
-			
-			// enqueue the static contents of the Asset class and give it a name
-			fAssetManager.enqueue("game", spira.assets.SpiraAssets);
-			
-			fAssetManager.enqueue("loader", spira.assets.IntroAssets);
-			
-			// start loading the assets
-			fAssetManager.loadQueues(initialize);
-			
-			addEventListener('navigate', changeScene);
-			//startup();
-			//this.addEventListener(starling.events.Event.ADDED_TO_STAGE, onAddedToStage );	
+			startup();
 		}
-		
-		private function initialize():void
-		{
-			background = new Image(fAssetManager.getTexture("background"));
-			background.alpha = 0;
-			addChild(background);
-			TweenMax.to(background, 0.4,{alpha:1, onComplete:startup});
-			
-		}
-		private function changeScene(e:Event):void
-		{
-			setScene(NavOptions(e.data) );
-		}		
 		
 		private function startup():void
 		{
-			trace('start up');
+			
+			// GLOBAL BACKGROUND
+			fAssetManager.enqueue(Background);
+			fAssetManager.loadQueue(startScene);
+			
+		}
+		
+		private function startScene():void
+		{
+			background = new Image(fAssetManager.getTexture("background"));
+			addChild(background);
+			
+			trace('start scene');
+			
 			setScene( new NavOptions('intro') );
 		}
 		
 		private function setScene(options:NavOptions):void
 		{
 			if( screen ){
-				removeChild(screen);
-				screen = null;
+				trace('CHANGE SCRREN');
+				TransitionManager.dispatchEvent(new TransitionManagerEvent(TransitionManagerEvent.TRANSITION_OUT));
+				TransitionManager.addEventListener(TransitionManagerEvent.TRANSITION_OUT_COMPLETE, onDeleteScreen);
+		
+				function onDeleteScreen():void{
+					TransitionManager.removeEventListener(TransitionManagerEvent.TRANSITION_OUT_COMPLETE, onDeleteScreen);
+					trace('DELETE SCREEN');
+					removeChild(screen);
+					removeEventsListener();
+					screen = null;
+					changeScene(options.screenId);
+				}
+			} else{
+				changeScene(options.screenId);
 			}
-	
-			switch(options.screenId)
+		}
+		
+		private function changeScene(scene:String):void
+		{
+			trace('::: new scene');
+			// NEW SCENE
+			switch(scene)
 			{
-				case 'intro': screen = new Intro(); break;
+				case 'intro': 
+					screen = new Intro(); 
+					break;
+				case 'composer':
+					screen = new Composer();
+					break;
 				/*case 'game':  screen = new Game(); break;
 				case 'end':  screen = new End(options.data); break;*/
 			}
-			if(screen) addChild(screen);
+			if(screen){
+				addChild(screen);
+				trace('ADD LISTENER: ASSET_LOADED');
+				
+				// on attend que les assets soit chargés
+				TransitionManager.addEventListener(TransitionManagerEvent.ASSET_LOADED, onAssetLoaded);
+				
+				function onAssetLoaded():void
+				{
+					trace('ASSET LOADED');
+					TransitionManager.dispatchEvent(new TransitionManagerEvent(TransitionManagerEvent.TRANSITION_IN));
+				}
+				
+				trace('ADD LISTENER: TRANSITION IN COMPLETE');
+				TransitionManager.addEventListener(TransitionManagerEvent.TRANSITION_IN_COMPLETE, onAddedScreen);
+			
+				function onAddedScreen():void{
+					TransitionManager.removeEventListener(TransitionManagerEvent.TRANSITION_IN_COMPLETE, onAddedScreen);
+					trace('TRANSITION IN COMPLETE');
+					addEventsListener();
+				}
+				
+			}
+		}
+		
+		
+		
+		private function removeEventsListener():void
+		{
+			screen.removeEventListener(NavigationEvent.CHANGE_SCREEN, handleChangeScreen);
+			
+		}
+		
+		private function addEventsListener():void
+		{
+			screen.addEventListener(NavigationEvent.CHANGE_SCREEN, handleChangeScreen);
+			
+		}
+		
+		private function handleChangeScreen(evt:NavigationEvent):void
+		{
+			if( evt.data.view ){
+				setScene(new NavOptions(evt.data.view));
+			}
+			
 		}
 	}
 }

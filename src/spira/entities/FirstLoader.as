@@ -8,17 +8,14 @@ package spira.entities
 	import starling.textures.TextureAtlas;
 	
 	
-	public class FirstLoader extends Sprite
+	public class FirstLoader extends MovieClip
 	{
-
-		private var loader:MovieClip;
-		
 		public function FirstLoader(textures:Vector.<Texture>, fps:Number=12)
 		{
-			loader = new MovieClip(textures, 30);
-			loader.pivotX = loader.width / 2;
-			loader.pivotY = loader.height / 2;
-			addChild(loader);
+			super(textures, fps);
+			this.pivotX = this.width / 2;
+			this.pivotY = this.height / 2;
+			this.loop = false;
 			
 			addEventListener(starling.events.Event.ADDED_TO_STAGE, onAdded);
 		}
@@ -27,13 +24,11 @@ package spira.entities
 		{
 			removeEventListener(starling.events.Event.ADDED_TO_STAGE, onAdded);
 			addEventListener(starling.events.Event.REMOVED_FROM_STAGE, onRemoved);
-			
-			Starling.juggler.add(loader);
 		}
 		
 		private function onRemoved():void
 		{
-			Starling.juggler.remove(loader);
+			removeEventListener(starling.events.Event.REMOVED_FROM_STAGE, onRemoved);
 		}
 	}
 }
