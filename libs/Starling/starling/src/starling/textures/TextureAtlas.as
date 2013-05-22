@@ -84,7 +84,7 @@ package starling.textures
          *  (e.g. to support a different file format). */
         protected function parseAtlasXml(atlasXml:XML):void
         {
-            var scale:Number = mAtlasTexture.scale;
+            var scale:Number = 1;
             
             for each (var subTexture:XML in atlasXml.SubTexture)
             {

@@ -3,12 +3,15 @@ package
 	import com.greensock.*;
 	import com.greensock.easing.*;
 	
+	import com.mikesoylu.fortia.fAssetManager;
+	
 	import events.NavigationEvent;
 	
-	import screens.Helix;
-	import screens.InGame;
-	import screens.Intro;
-	import screens.game.Compositing;
+	import flash.utils.setTimeout;
+	
+	import spira.assets.SpiraAssets;
+	import spira.models.NavOptions;
+	import spira.screens.Intro;
 	
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -16,92 +19,64 @@ package
 	
 	public class Game extends Sprite
 	{
-		private var screenWelcome:Intro;
-		private var screenInGame:InGame;
-		private var screenHelix:Helix;
-		private var screenCompositing:Compositing;
-		private var bigTitle:Image;
-		private var that:Object;
+		
+		private var screen:Sprite;
 		
 		private var background:Image;
+		
 		public function Game()
 		{
 			super();
-			this.addEventListener(starling.events.Event.ADDED_TO_STAGE, onAddedToStage );	
-		}
-		private function onAddedToStage(event:Event):void
-		{
-			that = this;
-			background = new Image(Assets.getTexture('splashScreen'));
-			this.addChild(background);			
-			trace(this, Game);
-			// title
-			bigTitle = new Image(Assets.getAtlas().getTexture("bigTitle"));
-			bigTitle.pivotX = bigTitle.width/2;
-			bigTitle.pivotY = bigTitle.height/2;
-			bigTitle.x = 512;
-			bigTitle.y = 384 - 100;
-			bigTitle.scaleY = 0.9;
-			bigTitle.scaleX = 0.9;
-			bigTitle.alpha = 0;
-			this.addChild(bigTitle);
 			
+			fAssetManager.addManager("game");
+			fAssetManager.addManager("loader");
 			
-			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
+			// enqueue the static contents of the Asset class and give it a name
+			fAssetManager.enqueue("game", spira.assets.SpiraAssets);
 			
+			fAssetManager.enqueue("loader", spira.assets.IntroAssets);
 			
-			//  SET ALL SCREENS
-			// PLACE HERE SCREENS APP TO DISPOSE (HIDE) TO PREPARE THE STAGE
+			// start loading the assets
+			fAssetManager.loadQueues(initialize);
 			
-			//screenInGame = new InGame();
-			//screenInGame.disposeTemporarily();
-			//this.addChild(screenInGame);
-			
-			screenCompositing = new Compositing();
-			this.addChild(screenCompositing);
-			screenCompositing.disposeTemporarily();
-			
-			screenHelix = new Helix();
-			this.addChild(screenHelix);
-			screenHelix.disposeTemporarily();
-			
-			
-			screenWelcome = new Intro();
-			this.addChild(screenWelcome);
-			screenWelcome.initialize();
-			TweenMax.to(bigTitle, 4, {alpha: 1, ease:Cubic.easeOut});
-			TweenMax.to(bigTitle, 1, {scaleX: 1, scaleY:1, ease:Cubic.easeInOut});
+			addEventListener('navigate', changeScene);
+			//startup();
+			//this.addEventListener(starling.events.Event.ADDED_TO_STAGE, onAddedToStage );	
 		}
 		
-		
-		// MANAGE APP SCREENS 
-		
-		private function onChangeScreen(event:NavigationEvent):void
+		private function initialize():void
 		{
-			switch (event.params.id)
-			{
-				// set tweens here just before loading view
-				case "compositing":
-					TweenMax.to(bigTitle, 1, {alpha:0, onComplete: function():void{
-						screenWelcome.disposeTemporarily();
-						screenCompositing.initialize();
-					}, ease: Quad.easeOut});
-					break;
-				case "helix":
-					TweenMax.to(bigTitle, 1, {alpha:0, onComplete: function():void{
-						screenCompositing.disposeTemporarily();
-						screenWelcome.disposeTemporarily();
-					
-						screenHelix.initialize();
-					}, ease:Quad.easeOut});
-					break;
-				case "intro":
-					screenCompositing.disposeTemporarily();
-					screenHelix.disposeTemporarily();
-					screenWelcome.initialize();
-					TweenMax.to(bigTitle, 2, {alpha: 1, ease:Quad.easeOut});
-					break;
+			background = new Image(fAssetManager.getTexture("background"));
+			background.alpha = 0;
+			addChild(background);
+			TweenMax.to(background, 0.4,{alpha:1, onComplete:startup});
+			
+		}
+		private function changeScene(e:Event):void
+		{
+			setScene(NavOptions(e.data) );
+		}		
+		
+		private function startup():void
+		{
+			trace('start up');
+			setScene( new NavOptions('intro') );
+		}
+		
+		private function setScene(options:NavOptions):void
+		{
+			if( screen ){
+				removeChild(screen);
+				screen = null;
 			}
+	
+			switch(options.screenId)
+			{
+				case 'intro': screen = new Intro(); break;
+				/*case 'game':  screen = new Game(); break;
+				case 'end':  screen = new End(options.data); break;*/
+			}
+			if(screen) addChild(screen);
 		}
 	}
 }
