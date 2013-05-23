@@ -5,6 +5,7 @@ package spira.events
 	public class NavigationEvent extends Event
 	{
 		public static var CHANGE_SCREEN:String = 'changeScreen';
+		public static var PENTAGONE_DATA:String = 'pentagoneData';
 		
 		//public var screen:String;
 		

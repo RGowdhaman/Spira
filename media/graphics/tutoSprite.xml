@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:40f1361dd29d3fb86a68d8c73378b593$ -->
+<TextureAtlas imagePath="tutoSprite.png">
+    <SubTexture name="tutoCercle_00000" x="2" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00001" x="349" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00002" x="696" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00003" x="1043" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00004" x="1390" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00005" x="2" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00006" x="349" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00007" x="696" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00008" x="1043" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00009" x="1390" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00010" x="2" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00011" x="349" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00012" x="696" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00013" x="1043" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00014" x="1390" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00015" x="2" y="1043" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00016" x="349" y="1043" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00017" x="696" y="1043" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00018" x="1043" y="1043" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00019" x="1390" y="1043" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00020" x="2" y="1390" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00021" x="349" y="1390" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00022" x="696" y="1390" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00023" x="1043" y="1390" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00024" x="1390" y="1390" width="345" height="345"/>
+    <SubTexture name="tutoClose" x="1737" y="1390" width="22" height="22"/>
+    <SubTexture name="tutoNext" x="1761" y="1390" width="22" height="22"/>
+    <SubTexture name="tutoPrevious" x="1785" y="1390" width="22" height="22"/>
+</TextureAtlas>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:f50f4034540e878f014126102be370c6$ -->
+<TextureAtlas imagePath="hudSprite.png">
+    <SubTexture name="help" x="68" y="32" width="24" height="24"/>
+    <SubTexture name="hud_melodies" x="45" y="17" width="67" height="13"/>
+    <SubTexture name="hud_mix" x="2" y="17" width="41" height="13"/>
+    <SubTexture name="hud_percussions" x="2" y="2" width="94" height="13"/>
+    <SubTexture name="hud_rythmes" x="2" y="32" width="64" height="13"/>
+</TextureAtlas>

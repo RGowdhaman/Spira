@@ -1,5 +1,6 @@
 package
 {
+	import com.greensock.TweenMax;
 	import com.mikesoylu.fortia.fAssetManager;
 	
 	import flash.display.Sprite;
@@ -22,8 +23,9 @@ package
 		
 		private var screen:Sprite;
 		private var background:Image;
-		private var oldScreen:Sprite;
 		
+		private var gameManager:fAssetManager;
+		private var splashLogo:Image;
 		
 		public function Game()
 		{
@@ -35,31 +37,46 @@ package
 		{
 			
 			// GLOBAL BACKGROUND
-			fAssetManager.enqueue(Background);
-			fAssetManager.loadQueue(startScene);
+			
+			gameManager = new fAssetManager();
+			gameManager.enqueue(Background);
+			gameManager.loadQueue(startScene);
 			
 		}
 		
 		private function startScene():void
 		{
-			background = new Image(fAssetManager.getTexture("background"));
+			background = new Image(gameManager.getTexture("background"));
 			addChild(background);
+			background.alpha = 1;
 			
-			trace('start scene');
+			splashLogo = new Image(gameManager.getTexture("splashLogo"));
+			addChild(splashLogo);
+			splashLogo.pivotX = splashLogo.width/2;
+			splashLogo.pivotY = splashLogo.height/2;
+			splashLogo.x = 1024/2;
+			splashLogo.y = 768/2;
 			
-			setScene( new NavOptions('intro') );
+			splashLogo.alpha = 1;
+			setTimeout(function():void{
+				TweenMax.to(splashLogo,1,{alpha:0, onComplete:function():void{
+					setScene( new NavOptions('intro') );
+				}});
+			},500);
 		}
 		
 		private function setScene(options:NavOptions):void
 		{
 			if( screen ){
-				trace('CHANGE SCRREN');
+				trace('DISPATCH:: TRANSITION OUT');
 				TransitionManager.dispatchEvent(new TransitionManagerEvent(TransitionManagerEvent.TRANSITION_OUT));
+				trace('ADD:: TRANSITION OUT COMPLETE');
 				TransitionManager.addEventListener(TransitionManagerEvent.TRANSITION_OUT_COMPLETE, onDeleteScreen);
 		
 				function onDeleteScreen():void{
+					trace('REMOVE:: TRANSITION OUT COMPLETE');
 					TransitionManager.removeEventListener(TransitionManagerEvent.TRANSITION_OUT_COMPLETE, onDeleteScreen);
-					trace('DELETE SCREEN');
+				
 					removeChild(screen);
 					removeEventsListener();
 					screen = null;
@@ -72,60 +89,63 @@ package
 		
 		private function changeScene(scene:String):void
 		{
-			trace('::: new scene');
 			// NEW SCENE
 			switch(scene)
 			{
-				case 'intro': 
-					screen = new Intro(); 
-					break;
-				case 'composer':
-					screen = new Composer();
-					break;
-				/*case 'game':  screen = new Game(); break;
-				case 'end':  screen = new End(options.data); break;*/
+				case 'intro': screen = new Intro(); break;
+				case 'composer': screen = new Composer(); break;
 			}
+			
 			if(screen){
 				addChild(screen);
-				trace('ADD LISTENER: ASSET_LOADED');
-				
+			
 				// on attend que les assets soit chargés
+				trace('ADD:: ASSET LOADED');
 				TransitionManager.addEventListener(TransitionManagerEvent.ASSET_LOADED, onAssetLoaded);
 				
 				function onAssetLoaded():void
 				{
-					trace('ASSET LOADED');
+					// On remove le listener ASSET LOADED
+					trace('REMOVE:: ASSET_LOADED');
+					TransitionManager.removeEventListener(TransitionManagerEvent.ASSET_LOADED, onAssetLoaded);
+					
+					// On dispatch TRANSITION IN a la vue actuelle
+					trace('DISPATCH:: TRANSITION IN'); 
 					TransitionManager.dispatchEvent(new TransitionManagerEvent(TransitionManagerEvent.TRANSITION_IN));
 				}
 				
-				trace('ADD LISTENER: TRANSITION IN COMPLETE');
+				// On attend que la transition IN soit finit
+				trace('ADD:: TRANSITION IN COMPLETE');
 				TransitionManager.addEventListener(TransitionManagerEvent.TRANSITION_IN_COMPLETE, onAddedScreen);
 			
 				function onAddedScreen():void{
+					// on enlve le listener sur TRANSITION IN COMPLETE
+					trace('REMOVE:: TRANSITION IN COMPLETE');
 					TransitionManager.removeEventListener(TransitionManagerEvent.TRANSITION_IN_COMPLETE, onAddedScreen);
-					trace('TRANSITION IN COMPLETE');
 					addEventsListener();
 				}
 				
 			}
 		}
 		
-		
-		
 		private function removeEventsListener():void
 		{
+			
+			trace('REMOVE:: CHANGE SCREEN');
 			screen.removeEventListener(NavigationEvent.CHANGE_SCREEN, handleChangeScreen);
 			
 		}
 		
 		private function addEventsListener():void
 		{
+			trace('ADD:: CHANGE_SCREEN');
 			screen.addEventListener(NavigationEvent.CHANGE_SCREEN, handleChangeScreen);
 			
 		}
 		
 		private function handleChangeScreen(evt:NavigationEvent):void
 		{
+			trace('in handleChange: ', evt.data.view);
 			if( evt.data.view ){
 				setScene(new NavOptions(evt.data.view));
 			}

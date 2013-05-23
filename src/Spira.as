@@ -6,13 +6,6 @@ package
 	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
 	
-	import screens.InGame;
-	import screens.game.Compositing;
-	import screens.test.CreateSpi;
-	import screens.test.Spectrum;
-	import screens.test.lights;
-	import screens.test.testScreen;
-	
 	import starling.core.Starling;
 	import starling.display.Shape;
 	
@@ -21,6 +14,7 @@ package
 	{
 		
 		private var myStarling:Starling;
+		
 		
 		public function Spira()
 		{

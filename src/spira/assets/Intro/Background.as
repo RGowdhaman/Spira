@@ -4,5 +4,7 @@ package spira.assets.Intro
 	{
 		[Embed(source="../media/backgrounds/background.png")]
 		public static var background:Class;
+		[Embed(source="../media/backgrounds/splashLogo.png")]
+		public static var splashLogo:Class;
 	}
 }

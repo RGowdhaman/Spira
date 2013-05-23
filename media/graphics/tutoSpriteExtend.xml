@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3bc45d08fabd0983c75e08b20c490bcd$ -->
+<TextureAtlas imagePath="tutoSpriteExtend.png">
+    <SubTexture name="tutoCercle_00025" x="2" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00026" x="349" y="2" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00027" x="2" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00028" x="349" y="349" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00029" x="2" y="696" width="345" height="345"/>
+    <SubTexture name="tutoCercle_00030" x="349" y="696" width="345" height="345"/>
+</TextureAtlas>

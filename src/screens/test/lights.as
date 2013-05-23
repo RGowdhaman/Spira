@@ -110,11 +110,6 @@ package screens.test
 					triangleShape.graphics.lineTo(triangle[i].x, triangle[i].y); 
 				}
 			}
-			
-			triangleShape.graphics.lineStyle(1,0x00FF00);
-			triangleShape.graphics.endFill();
-
-
 			addChild(triangleShape);
 			
 			this.addEventListener(TouchEvent.TOUCH, onTouched);
